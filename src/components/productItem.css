@@ -1,0 +1,22 @@
+.product-item{
+    width:100%;
+    background-color: azure;
+    margin-bottom: 10px;
+    padding: 10px;
+    display: flex;
+    border: 2px solid rgb(207, 225, 255);
+    border-radius: 5px;
+}
+.product-info{
+    width: 90%;
+    justify-content: flex-start;
+}
+.del-btn{
+    border: 2px solid red;
+    border-radius: 5px;
+    background-color: rgba(254,100,100,255);
+    font-size: 15px;
+    color: white;
+    font-weight: bold;
+    height: 30px;
+}

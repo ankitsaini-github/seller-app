@@ -1,14 +1,14 @@
 import './productItem.css'
 const ProductItem=(props)=>{
-    const deleteproduct=(e)=>{
-        
+    const deleteproductHandler=(e)=>{
+        props.onDelete(props.id)
     }
     return(
-        <li className='product-item'>
+        <li id={props.id} className='product-item'>
             <div className='product-info'>
-                {`Price : rs${props.price} / Product Name : ${props.name}`}
+                {`Price : Rs ${props.price} / Product Name : ${props.name}`}
             </div>
-            <button className='del-btn' type='click' onClick={deleteproduct}>Delete Product</button>
+            <button className='del-btn' type='click' onClick={deleteproductHandler}>Delete</button>
         </li>
     )
 }
