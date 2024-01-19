@@ -1,7 +1,7 @@
 import './productItem.css'
 const ProductItem=(props)=>{
     const deleteproductHandler=(e)=>{
-        props.onDelete(props.id)
+        props.onDelete(props.id,props.price)
     }
     return(
         <li id={props.id} className='product-item'>

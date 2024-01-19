@@ -9,6 +9,9 @@ const ProductForm=(props)=>{
             name: e.target[2].value
         }
         props.newproduct(product);
+        e.target[0].value='';
+        e.target[1].value='';
+        e.target[2].value='';
     }
     return(
         <form className='product-form' onSubmit={addproduct}>

@@ -2,8 +2,8 @@ import ProductItem from './productItem';
 import './productList.css'
 
 const productList=(props)=>{
-    const removeProduct=(deleteID)=>{
-        props.deleteProduct(deleteID);
+    const removeProduct=(deleteID,deductPrice)=>{
+        props.deleteProduct(deleteID,deductPrice);
     }
     return(
         <div className='product-container'>

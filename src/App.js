@@ -1,21 +1,27 @@
-import React,{useState} from 'react';
+import React,{useEffect, useState} from 'react';
 import './App.css';
 import Navbar from './components/navbar.js';
 import ProductForm from './components/productForm.js';
 import ProductList from './components/productList.js';
+
+const sampleData=JSON.parse(localStorage.getItem('product-list'))===null?[]:JSON.parse(localStorage.getItem('product-list'));
+
 function App() {
-  const [Products,setProducts]=useState([]);
+  
+  const [Products,setProducts]=useState(sampleData);
   const [Cartvalue,setCartvalue]=useState(0);
+
+  useEffect(()=>{
+    localStorage.setItem("product-list",JSON.stringify(Products));
+    const totalPrice=Products.reduce((acc,p)=>acc+Number(p.price),0);
+    setCartvalue(totalPrice);
+  },[Products])
   const addnewproduct=(product)=>{
     setProducts([product,...Products]);
-    setCartvalue(Cartvalue+Number(product.price));
-    localStorage.setItem(product.id,JSON.stringify(product));
   }
   const deleteProductHandler=(idToRemove)=>{
     const newArr=Products.filter((product)=>product.id !== idToRemove);
-    let product=JSON.parse(localStorage.getItem(idToRemove))
-    localStorage.removeItem(idToRemove);
-    setCartvalue(Cartvalue-Number(product.price));
+    localStorage.setItem("product-list",JSON.stringify(newArr));
     setProducts(newArr);
   }
   return (
